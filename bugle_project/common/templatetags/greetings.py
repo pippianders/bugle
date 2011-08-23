@@ -4,6 +4,9 @@ import random
 register = template.Library()
 
 greetings = [
+    'Nooooooooooooooooooooooooooooo!  {{ name }}',
+    'We have the dead sommelier to prove it, {{ name }}',
+    'Ignore the antlers {{ name }}',
     'What ho, {{ name }}?',
     'Tally ho, {{ name}}!',
     'Pip pip, {{ name }}!',
