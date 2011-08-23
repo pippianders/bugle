@@ -1,14 +1,18 @@
 import os
+from os.path import abspath, dirname, join
 import site
 import sys
 
+project_root = os.path.split(dirname(abspath(join('.', '..'))))
 project_name = 'bugle_project'
 
-prev_sys_path = list(sys.path) 
+prev_sys_path = list(sys.path)
 
-site.addsitedir(os.path.abspath(os.path.join(os.path.dirname(__file__), '../../../')))
-site.addsitedir(os.path.abspath(os.path.join(os.path.dirname(__file__), '../../')))
-site.addsitedir(os.path.abspath(os.path.join(os.path.dirname(__file__), '../../../%s_ve/lib/python2.5/site-packages' % project_name)))
+relative_paths = ['../../../', '../../',
+                  '../../../%s_ve/lib/python2.7/site-packages' % project_name]
+
+for relative_path in relative_paths:
+    site.addsitedir(abspath(join(dirname(__file__), relative_path)))
 
 # Reorder sys.path so new directories at the front.
 new_sys_path = [] 
@@ -22,4 +26,3 @@ os.environ["DJANGO_SETTINGS_MODULE"] = "%s.configs.live.settings" % project_name
  
 from django.core.handlers.wsgi import WSGIHandler
 application = WSGIHandler()
-
