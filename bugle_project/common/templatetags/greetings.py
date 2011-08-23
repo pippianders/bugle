@@ -29,7 +29,8 @@ greetings = [
     'Looks like you could use a drink, {{ name }}.',
     'Well, hello there {{ name }}.',
     'You look good today, {{ name }}.',
-    'How appropriate, {{ name }}, you fight like a cow.'
+    'How appropriate, {{ name }}, you fight like a cow.',
+    'My milkshake brings all the boys to the yard, {{ name }}.',
 ]
 
 @register.simple_tag
