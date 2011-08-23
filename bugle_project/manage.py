@@ -4,6 +4,7 @@ from __future__ import print_function
 
 import os
 import sys
+import traceback
 from functools import partial
 
 # We want a few paths on the python path; where are we? eh?
@@ -43,6 +44,7 @@ except ImportError:
 # We haven't found anything helpful yet, so use development.
 if environment is None:
     print_stderr = partial(print, file=sys.stderr)
+    environment = 'development'
     
     try:
         print_stderr("No environment found: using development")
@@ -55,6 +57,7 @@ if environment is None:
                      "looked in %s and common." % (environment,))
         print_stderr("(If the file settings.py does indeed exist, it's "
                      "causing an ImportError somehow.)")
+        traceback.print_exc(file=sys.stderr)
         sys.exit(1)
 
 if __name__ == "__main__":
