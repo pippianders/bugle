@@ -1,0 +1,8 @@
+<VirtualHost *:80>
+    ServerName twitter.com
+    ServerAlias api.twitter.com
+    WSGIPassAuthorization On
+    WSGIScriptAlias / /home/bugle/bugle_project/bugle_project/configs/development/bugle.wsgi
+        ErrorLog /var/log/apache2/bugle-error.log
+        CustomLog /var/log/apache2/bugle-access.log combined
+</VirtualHost>
