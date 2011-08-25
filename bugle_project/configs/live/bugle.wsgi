@@ -3,7 +3,6 @@ from os.path import abspath, dirname, join
 import site
 import sys
 
-project_root = os.path.split(dirname(abspath(join('.', '..'))))
 project_name = 'bugle_project'
 
 prev_sys_path = list(sys.path)
