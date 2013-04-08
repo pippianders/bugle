@@ -10,5 +10,7 @@ The following brave knights have since contributed to bugle:
   James Coglan
   Natalie Downe
   Ben Firshman
+  Stephanie Hobson
   Steve Marshall
+  Anna Shipman
   David Thompson
