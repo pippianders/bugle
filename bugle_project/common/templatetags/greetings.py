@@ -30,8 +30,11 @@ greetings = [
     'Well, hello there {{ name }}.',
     'You look good today, {{ name }}.',
     'How appropriate, {{ name }}, you fight like a cow.',
-    'My milkshake brings all the boys to the yard, {{ name }}.',
+    'Your milkshake brings all the boys to the yard, {{ name }}.',
     "I could teach you, {{ name }}, but I'd have to charge.",
+    "You know, {{ name }}, if you're not careful, you're gonna lose me",
+    'Guess you picked the wrong day to quit smoking, {{ name }}',
+    'Try harder, {{name}}',
 ]
 
 @register.simple_tag
