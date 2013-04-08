@@ -1,9 +1,7 @@
 *.pyc
 ._*
+*~
+ENV
+uploads
 local_manage.py
 local_settings.py
-ve
-/bugle_project_ve/
-uploads
-*~
-
