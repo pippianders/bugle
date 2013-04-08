@@ -5,11 +5,10 @@ looking, by:
 
 The following brave knights have since contributed to bugle:
 
+  Ryan Alexander
   George Brocklehurst
+  James Coglan
   Natalie Downe
   Ben Firshman
   Steve Marshall
   David Thompson
-  James Coglan
-  Ryan Alexander
-  
