@@ -1,5 +1,4 @@
-bugle
-=====
+# bugle
 
 Group collaboration tools for hackers in forts.
 
@@ -18,13 +17,13 @@ included subversion post-commit hook) to post messages in an unobtrusive way.
 It was built as a side project during a [/dev/fort](http://devfort.com/) week 
 in a Scottish castle. See [AUTHORS](AUTHORS.txt) for contributors.
 
-
-Bugle isn't secure (vulnerable to CSRF) and probably doesn't scale.
-
 Bugle is released under a BSD license.
 
-Development installation
-------------------------
+## Important note
+
+Bugle isn't secure (vulnerable to CSRF) and doesn't scale.
+
+# Development installation
 
 Fabric is required:
     
@@ -44,8 +43,7 @@ If ``requirements.txt`` gets updated in the future, you may need to run:
 
     $ fab localhost install_requirements
 
-Setting up live server
-----------------------
+# Setting up live server
 
 Before deploying for the first time, install Apache and mod-wsgi 
 (``libapache2-mod-wsgi`` on Debian).
@@ -61,8 +59,7 @@ Set up the deployment environment:
 
     $ fab live setup
 
-Deployment
-----------
+## Deployment
 
 To deploy new versions:
 
