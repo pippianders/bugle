@@ -67,36 +67,3 @@ Deployment
 To deploy new versions:
 
     $ fab live create_version deploy
-
-
-Magic Twitter support
----------------------
-
-To make Twitter clients magically work with Bugle on a network, we 
-need to mess with BIND.
-
-Create ``/etc/bind/db.twitter.com``:
-
-    $TTL    604800
-    @   IN  SOA localhost.  root.localhost. (
-                        4   ; Serial
-                        604800  ; Refresh
-                        86400   ; Retry
-                        2419200 ; Expire
-                        604800  ; Negative Cache TTL
-                        )
-
-    @       IN  NS  10.0.0.1
-    @       IN  NS  10.0.0.2
-    @       IN  A   10.0.0.1
-    api     IN  A   10.0.0.1
-
-Add to ``/etc/bind/named.conf.local``:
-
-    zone "twitter.com." {
-            type master;
-            file "/etc/bind/db.twitter.com";
-    };
-
-
-
