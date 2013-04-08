@@ -1,10 +1,11 @@
-html{color:#000;background:#FFF;}
+/* resets */
+html{color:#000;background:#FFF;font-size:10px;}
 legend{color:#000;}
 table{border-collapse:collapse;border-spacing:0;}
 fieldset,img{border:0;}
 abbr,acronym{border:0;font-variant:normal;}
 q:before,q:after{content:'';}
-h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}
+h1,h2,h3,h4,h5,h6{font-size:1rem;font-weight:normal;}
 del,ins{text-decoration:none;}
 li{list-style:none;}
 body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,p,blockquote,th,td{margin:0;padding:0;}
@@ -13,17 +14,24 @@ address,caption,cite,code,dfn,em,strong,th,var,optgroup{font-style:inherit;font-
 sup{vertical-align:baseline;}
 sub{vertical-align:baseline;}
 input,button,textarea,select,optgroup,option{font-family:inherit;font-size:inherit;font-style:inherit;font-weight:inherit;}
-input,button,textarea,select{*font-size:100%;}
+input,button,textarea,select{*font-size:1rem;}
+
+
+@media all and (max-width:480px){
+	html{font-size:15px;}
+	
+}
 
 body {
     -webkit-font-smoothing: antialiased;
     margin:                 0 0 0 -419px;
     padding:                0;
+    font-size:1.6rem;
 }
 #body {
     margin:                 20px auto;
     padding:                0 0 0 429px;
-    width:                  640px;
+    max-width:              640px;
 }
 #bugle {
     margin-left:            -429px;
@@ -53,7 +61,7 @@ strong {
 }
 
 h1 {
-    font-size:              26px;
+    font-size:              2.6rem;
     margin:                 20px 0 25px;
 }
 h1 strong {
@@ -65,8 +73,8 @@ h1 a {
 
 nav {
     color:                  #a0a0a0;
-    font:                   13px Helvetica, Arial, sans-serif;
-    margin:                 38px 0;
+    font:                   1.3rem Helvetica, Arial, sans-serif;
+    margin:                 3.8rem 0;
 }
 nav ul {
     border-bottom:          1px solid #b9b9b9;
@@ -94,7 +102,7 @@ nav p {
 }
 nav p {
     color:                  #a0a0a0;
-    font:                   13px Helvetica, Arial, sans-serif;
+    font:                   1.3rem Helvetica, Arial, sans-serif;
     text-transform:         capitalize;
 }
 nav p span {
@@ -113,7 +121,7 @@ nav p .yours {
 #header,
 #header a {
     color:                  #a0a0a0;
-    font:                   11px Helvetica, Arial, sans-serif;
+    font:                   1.1rem Helvetica, Arial, sans-serif;
     text-align:             right;
 }
 #header span {
@@ -148,13 +156,19 @@ nav p .yours {
     position:               absolute;
 }
 
+@media all and (max-width:480px){
+ 	#search{
+ 		margin-top:10px;	
+ 	}	
+}
+
 #blast {
-    font:                   13px Helvetica, Arial, sans-serif;
+    font:                   1.3rem Helvetica, Arial, sans-serif;
 }
 #blast input[type=text],
 #blast textarea,
 #blast input[type=submit] {
-    font-size:              20px;
+    font-size:              2rem;
     padding:                8px 0 5px;
 }
 #blast input[type=text],
@@ -162,8 +176,8 @@ nav p .yours {
     background:             -webkit-gradient( linear, left top, left bottom, from(#e0e0e0), to(#fff), color-stop( 0.1, #fff ) );
     border:                 1px solid #000;
     margin:                 8px 0;
-    width:                  478px;
-    max-width:              478px;
+    width:                  99%;
+    max-width: 				478px;
 }
 #blast textarea {
     font-family:            Menlo, monospace;
@@ -176,11 +190,19 @@ nav p .yours {
     color:                  #fff;
     cursor:                 pointer;
     margin-left:            5px;
+    margin-bottom:			10px;
     position:               relative;
     top:                    2px;
     width:                  150px;
     -webkit-box-shadow:     none;
 }
+
+@media all and (max-width:480px){
+	#blast-base .extended{
+		display:block;	
+	}
+}
+
 #blast .extended a.active {
     color:                  #a0a0a0;
 }
@@ -210,12 +232,14 @@ nav p .yours {
     margin-top:             65px;
 }
 #blasts.solo div p {
-    font-size:              48px;
+    font-size:              4.8rem;
 }
 
 #blasts div form,
 #blasts p {
     display:                inline-block;
+    overflow: 	            auto;
+    max-width: 	            100%;
 }
 #blasts.solo div form,
 #blasts.solo p {
@@ -238,7 +262,7 @@ nav p .yours {
 #blasts .delete {
     color:                  #a0a0a0;
     display:                inline-block;
-    font:                   11px Helvetica, Arial, sans-serif;
+    font:                   1.1rem Helvetica, Arial, sans-serif;
 }
 #blasts .favourited {
     display:                block;
@@ -270,7 +294,7 @@ nav p .yours {
     background-color: rgb(238, 238, 238);
 }
 #blasts .bundle div {
-    font-size: 12px;
+    font-size: 1.2rem;
     font-family: Menlo, monospace;
 }
 #blasts .bundle > div {
