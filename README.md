@@ -44,13 +44,6 @@ If ``requirements.txt`` gets updated in the future, you may need to run:
 
     $ fab localhost install_requirements
 
-
-Test suite
-----------
-
-    $ fab localhost test
-
-
 Setting up live server
 ----------------------
 
