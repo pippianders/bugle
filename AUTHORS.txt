@@ -1,0 +1,11 @@
+Bugle was created in a week at /dev/fort 2, during the hours of night when no one was
+looking, by:
+
+  Simon Willison
+
+The following brave knights have since contributed to bugle:
+
+  George Brocklehurst
+  Natalie Downe
+  Ben Firshman
+  Steve Marshall

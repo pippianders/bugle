@@ -16,12 +16,8 @@ list. It also has a rudimentary API allowing automated scripts (such as the
 included subversion post-commit hook) to post messages in an unobtrusive way.
 
 It was built as a side project during a [/dev/fort](http://devfort.com/) week 
-in a Scottish castle. 
+in a Scottish castle. See [AUTHORS](AUTHORS.txt) for contributors.
 
-Server-side code is by Simon Willison, and the parts of the CSS that don't 
-suck are by Natalie Downe (Simon's butchered it a bit since then).
-
-Awesome/Evil Twitter API imitation by Ben Firshman.
 
 Bugle isn't secure (vulnerable to CSRF) and probably doesn't scale.
 
