@@ -21,7 +21,7 @@ for item in list(sys.path):
         sys.path.remove(item) 
 sys.path[:0] = new_sys_path
 
-os.environ["DJANGO_SETTINGS_MODULE"] = "%s.configs.live.settings" % project_name
+os.environ["DJANGO_SETTINGS_MODULE"] = "%s.configs.development.settings" % project_name
  
 from django.core.handlers.wsgi import WSGIHandler
 application = WSGIHandler()

@@ -4,6 +4,9 @@ import random
 register = template.Library()
 
 greetings = [
+    'Nooooooooooooooooooooooooooooo!  {{ name }}',
+    'We have the dead sommelier to prove it, {{ name }}',
+    'Ignore the antlers {{ name }}',
     'What ho, {{ name }}?',
     'Tally ho, {{ name}}!',
     'Pip pip, {{ name }}!',
@@ -26,6 +29,9 @@ greetings = [
     'Looks like you could use a drink, {{ name }}.',
     'Well, hello there {{ name }}.',
     'You look good today, {{ name }}.',
+    'How appropriate, {{ name }}, you fight like a cow.',
+    'My milkshake brings all the boys to the yard, {{ name }}.',
+    "I could teach you, {{ name }}, but I'd have to charge.",
 ]
 
 @register.simple_tag

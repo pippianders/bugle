@@ -1,29 +1,64 @@
 #!/usr/bin/env python
+
+from __future__ import print_function
+
 import os
-import site
 import sys
+import traceback
+from functools import partial
 
-prev_sys_path = list(sys.path) 
+# We want a few paths on the python path; where are we? eh?
+project_path = os.path.realpath(os.path.dirname(__file__))
+# Next add the root above the project so we can have absolute paths everywhere
+repo_path = os.path.join(project_path, '../')
 
-site.addsitedir(os.path.abspath(os.path.join(os.path.dirname(__file__), '../')))
-site.addsitedir(os.path.abspath(os.path.join(os.path.dirname(__file__), '../bugle_project_ve/lib/python%s/site-packages' % '.'.join((unicode(x) for x in sys.version_info[0:2])))))
-
-# Reorder sys.path so new directories at the front.
-new_sys_path = [] 
-for item in list(sys.path): 
-    if item not in prev_sys_path: 
-        new_sys_path.append(item) 
-        sys.path.remove(item) 
-sys.path[:0] = new_sys_path
+# we add them first to avoid any collisions
+sys.path.insert(0, project_path)
+sys.path.insert(0, repo_path)
 
 from django.core.management import execute_manager
+
+args = sys.argv
+# Let's figure out our environment
+if os.environ.has_key('DJANGOENV'):
+    environment = os.environ['DJANGOENV']
+elif len(sys.argv) > 1:
+    # this doesn't currently work
+    environment = sys.argv[1]
+    if os.path.isdir(os.path.join(project_path, 'settings', environment)):
+        sys.argv = [sys.argv[0]] + sys.argv[2:]
+    else:
+        environment = None
+else:
+    environment = None
+
 try:
-    from bugle_project.configs import settings
+    module = "configs.%s.settings" % environment
+    __import__(module)
+    settings = sys.modules[module]
+    # worked, so add it into the path so we can import other things out of it
+    sys.path.insert(0, os.path.join(project_path, 'configs', environment))
 except ImportError:
-    import sys
-    sys.stderr.write("Error: Can't find the file 'settings.py' in the directory containing %r. It appears you've customized things.\nYou'll have to run django-admin.py, passing it your settings module.\n(If the file settings.py does indeed exist, it's causing an ImportError somehow.)\n" % __file__)
-    sys.exit(1)
+    environment = None
+
+# We haven't found anything helpful yet, so use development.
+if environment is None:
+    print_stderr = partial(print, file=sys.stderr)
+    environment = 'development'
+    
+    try:
+        print_stderr("No environment found: using development")
+        import configs.development.settings
+        settings = configs.development.settings
+        environment = 'development'
+        sys.path.insert(0, os.path.join(project_path, 'configs', environment))
+    except ImportError:
+        print_stderr("Error: Can't find the file 'settings.py'; "
+                     "looked in %s and common." % (environment,))
+        print_stderr("(If the file settings.py does indeed exist, it's "
+                     "causing an ImportError somehow.)")
+        traceback.print_exc(file=sys.stderr)
+        sys.exit(1)
 
 if __name__ == "__main__":
     execute_manager(settings)
-
