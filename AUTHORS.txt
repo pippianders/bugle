@@ -9,3 +9,7 @@ The following brave knights have since contributed to bugle:
   Natalie Downe
   Ben Firshman
   Steve Marshall
+  David Thompson
+  James Coglan
+  Ryan Alexander
+  
