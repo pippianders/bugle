@@ -31,9 +31,7 @@ Fabric is required:
 
 To set up a development environment:
 
-    $ mysql -u root
-    mysql> create database bugle default charset = "utf8";
-    mysql> exit
+    $ sudo -u postgres createdb -O `whoami` bugle
     $ fab localhost setup_dev 
     $ cd bugle_project/
     $ ./manage.py syncdb
@@ -48,10 +46,11 @@ If ``requirements.txt`` gets updated in the future, you may need to run:
 Before deploying for the first time, install Apache and mod-wsgi 
 (``libapache2-mod-wsgi`` on Debian).
 
-Create MySQL database ``bugle`` and an SSL certificate:
+Create database ``bugle`` and an SSL certificate:
 
-    $ mysql -u root
-    mysql> create database bugle default charset = "utf8";
+    $ sudo -u postgres createuser -P -D -S -R bugle
+    [enter password for bugle user]
+    $ sudo -u postgres createdb -O bugle bugle
     $ make-ssl-cert generate-default-snakeoil --force-overwrite
     $ a2enmod ssl
 
