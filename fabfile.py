@@ -49,12 +49,12 @@ def syncdb_migrate():
 @runs_once
 def setup():
     require('hosts', 'path')
-    put('dependencies/pip-0.8.1.tar.gz', env.path)
-    put('dependencies/virtualenv-1.5.1.tar.gz', env.path)
+    #put('dependencies/pip-0.8.1.tar.gz', env.path)
+    #put('dependencies/virtualenv-1.5.1.tar.gz', env.path)
     
     with cd(env.path):
-        sudo('easy_install pip-0.8.1.tar.gz')
-        sudo('pip install virtualenv-1.5.1.tar.gz')
+        #sudo('easy_install pip-0.8.1.tar.gz')
+        #sudo('pip install virtualenv-1.5.1.tar.gz')
         run('mkdir -p packages')
         run('mkdir -p releases')
         run('mkdir -p uploads')
@@ -87,7 +87,7 @@ def deploy():
         run('ln -s %s releases/current' % env.version_path)
 
         # Install virtualenv
-        sudo('cp %(version_path)s/%(project_name)s/configs/live/virtualhosts/bugle /etc/apache2/sites-available/')
+        sudo('cp %(version_path)s/%(project_name)s/configs/live/virtualhosts/bugle /etc/apache2/sites-available/' % env)
         sudo('a2ensite bugle')
     
         run('rm -f %(version_path)s/%(project_name)s/static/admin' % env)
@@ -121,7 +121,7 @@ def install_requirements():
     "Install the required packages from the requirements file using pip"
     require('version_path')
     with cd(env.version_path):
-        run('pip install --upgrade -E %s_ve/ -r requirements.txt' % env.project_name)
+        run('%s_ve/bin/pip install --upgrade -i http://pypi.fort/simple/ -r requirements.txt' % env.project_name)
 
 def restart_apache():
     sudo('/etc/init.d/apache2 force-reload')
