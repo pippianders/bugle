@@ -1,4 +1,4 @@
-var Faye = require('faye');
+var Faye = require('./lib/faye-node');
 var fs = require('fs');
 var sys = require('sys');
 
