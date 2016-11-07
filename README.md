@@ -25,9 +25,9 @@ Bugle isn't secure (vulnerable to CSRF) and doesn't scale.
 
 # Development installation
 
-Fabric is required:
+Fabric is required (or do the `setup_dev` stuff yourself):
     
-    $ sudo easy_install fabric
+    $ pip install fabric
 
 To set up a development environment:
 

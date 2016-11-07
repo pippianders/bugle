@@ -49,12 +49,8 @@ def syncdb_migrate():
 @runs_once
 def setup():
     require('hosts', 'path')
-    #put('dependencies/pip-0.8.1.tar.gz', env.path)
-    #put('dependencies/virtualenv-1.5.1.tar.gz', env.path)
     
     with cd(env.path):
-        #sudo('easy_install pip-0.8.1.tar.gz')
-        #sudo('pip install virtualenv-1.5.1.tar.gz')
         run('mkdir -p packages')
         run('mkdir -p releases')
         run('mkdir -p uploads')
@@ -129,8 +125,8 @@ def restart_apache():
 def setup_dev():
     require('version_path')
     with cd(env.path):
-        sudo('easy_install dependencies/pip-0.8.1.tar.gz')
-        sudo('pip install dependencies/virtualenv-1.5.1.tar.gz')
+        sudo('pip install --upgrade pip')
+        sudo('pip install virtualenv')
     setup_virtualenv()
     install_requirements()
 
